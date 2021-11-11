@@ -19,11 +19,23 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
+import { ReactComponent as CarClub } from './images/Car Club Text.svg';
+import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
+
 const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
 
-const MintContainer = styled.div``; // add your styles here
+const FccContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;`;
+
+const MintContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;`;
 
 const MintButton = styled(Button)``; // add your styles here
 
@@ -179,34 +191,38 @@ const Home = (props: HomeProps) => {
 
       {wallet && <p>Remaining: {itemsRemaining}</p>}
 
-      <MintContainer>
-        {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
-        ) : (
-          <MintButton
-            disabled={isSoldOut || isMinting || !isActive}
-            onClick={onMint}
-            variant="contained"
-          >
-            {isSoldOut ? (
-              "SOLD OUT"
-            ) : isActive ? (
-              isMinting ? (
-                <CircularProgress />
+      <FccContainer>
+        <FCCText id='FCC'></FCCText>
+        <CarClub></CarClub>
+        <MintContainer>
+          {!wallet ? (
+            <ConnectButton>Connect Wallet</ConnectButton>
+          ) : (
+            <MintButton
+              disabled={isSoldOut || isMinting || !isActive}
+              onClick={onMint}
+              variant="contained"
+            >
+              {isSoldOut ? (
+                "SOLD OUT"
+              ) : isActive ? (
+                isMinting ? (
+                  <CircularProgress />
+                ) : (
+                  "MINT"
+                )
               ) : (
-                "MINT"
-              )
-            ) : (
-              <Countdown
-                date={startDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
-                onComplete={() => setIsActive(true)}
-                renderer={renderCounter}
-              />
-            )}
-          </MintButton>
-        )}
-      </MintContainer>
+                <Countdown
+                  date={startDate}
+                  onMount={({ completed }) => completed && setIsActive(true)}
+                  onComplete={() => setIsActive(true)}
+                  renderer={renderCounter}
+                />
+              )}
+            </MintButton>
+          )}
+        </MintContainer>
+      </FccContainer>
 
       <Snackbar
         open={alertState.open}
