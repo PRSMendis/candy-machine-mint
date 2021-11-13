@@ -16,7 +16,6 @@ const Cdown = () =>  {
     const timeFormat = "MM DD YYYY, h:mm a"
 
     useEffect(() => {
-        console.log('render')
         setTimeout(() => {
             const then = moment(timeTillDate, timeFormat);
             const now = moment();
@@ -25,9 +24,6 @@ const Cdown = () =>  {
             setMinutes(countdown.format('mm'));
             setHours(countdown.format('HH'));
             setDays(countdown.format('D'));
-            // const minutes = countdown.format('mm');
-            // const seconds = countdown.format('ss');
-
           }, 1000);
 
     }, [seconds, minutes, hours, days])
