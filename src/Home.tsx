@@ -21,6 +21,9 @@ import {
 
 import { ReactComponent as CarClub } from './images/Car Club Text.svg';
 import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
+
+import Cdown from "./components/Cdown"
+
 const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
@@ -212,6 +215,7 @@ const Home = (props: HomeProps) => {
           <CarClub id ='car-club'></CarClub>
         </Logo>
         <Countdown date= {Date.now() + 100000}></Countdown>
+        <Cdown></Cdown>
         <MintContainer>
           {!wallet ? (
             <ConnectButton>Connect Wallet</ConnectButton>
