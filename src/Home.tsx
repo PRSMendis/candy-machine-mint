@@ -21,6 +21,8 @@ import {
 
 import { ReactComponent as CarClub } from './images/Car Club Text.svg';
 import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
+import CARCLUBTEXT from './images/Car Club Text.svg'
+import CCT from './components/CarClub';
 
 const ConnectButton = styled(WalletDialogButton)``;
 
@@ -193,7 +195,7 @@ const Home = (props: HomeProps) => {
 
       <FccContainer>
         <FCCText id='FCC'></FCCText>
-        <CarClub></CarClub>
+        <CCT></CCT>
         <MintContainer>
           {!wallet ? (
             <ConnectButton>Connect Wallet</ConnectButton>
