@@ -21,9 +21,6 @@ import {
 
 import { ReactComponent as CarClub } from './images/Car Club Text.svg';
 import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
-import CARCLUBTEXT from './images/Car Club Text.svg'
-import CCT from './components/CarClub';
-
 const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
@@ -195,7 +192,7 @@ const Home = (props: HomeProps) => {
 
       <FccContainer>
         <FCCText id='FCC'></FCCText>
-        <CCT></CCT>
+        <CarClub></CarClub>
         <MintContainer>
           {!wallet ? (
             <ConnectButton>Connect Wallet</ConnectButton>
