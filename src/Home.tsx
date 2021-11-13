@@ -211,6 +211,7 @@ const Home = (props: HomeProps) => {
           <FCCText id='FCC'></FCCText>
           <CarClub id ='car-club'></CarClub>
         </Logo>
+        <Countdown date= {Date.now() + 100000}></Countdown>
         <MintContainer>
           {!wallet ? (
             <ConnectButton>Connect Wallet</ConnectButton>
