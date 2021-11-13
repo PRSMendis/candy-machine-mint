@@ -17,7 +17,7 @@ const Cdown = () =>  {
 
     useEffect(() => {
         console.log('render')
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             const then = moment(timeTillDate, timeFormat);
             const now = moment();
             const countdown = moment(then.valueOf() - now.valueOf());
