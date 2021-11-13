@@ -8,10 +8,10 @@ import moment from 'moment';
 
 
 const Cdown = () =>  {
-    const [seconds, setSeconds] = useState(1);
-    const [minutes, setMinutes] = useState(0);
-    const [hours, setHours] = useState(0);
-    const [days, setDays] = useState(0);
+    const [seconds, setSeconds] = useState('');
+    const [minutes, setMinutes] = useState('');
+    const [hours, setHours] = useState('');
+    const [days, setDays] = useState('');
     const timeTillDate = "12 05 2021, 1:00 am"
     const timeFormat = "MM DD YYYY, h:mm a"
 
@@ -21,14 +21,16 @@ const Cdown = () =>  {
             const then = moment(timeTillDate, timeFormat);
             const now = moment();
             const countdown = moment(then.valueOf() - now.valueOf());
-            const days = countdown.format('D');
-            const hours = countdown.format('HH');
-            const minutes = countdown.format('mm');
-            const seconds = countdown.format('ss');
+            setSeconds(countdown.format('ss'));
+            setMinutes(countdown.format('mm'));
+            setHours(countdown.format('HH'));
+            setDays(countdown.format('D'));
+            // const minutes = countdown.format('mm');
+            // const seconds = countdown.format('ss');
 
           }, 1000);
 
-    }, [])
+    }, [seconds, minutes, hours, days])
 
     
 
