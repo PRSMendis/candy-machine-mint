@@ -29,7 +29,24 @@ const FccContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;`;
+  align-items: center;`
+
+const Logo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 16vh;
+  width: 100%;
+`
+
+const Main = styled.main`
+height:100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
 
 const MintContainer = styled.div`
   display: flex;
@@ -177,22 +194,23 @@ const Home = (props: HomeProps) => {
   ]);
 
   return (
-    <main>
+    <Main>
       {wallet && (
         <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
       )}
 
       {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-
       {wallet && <p>Total Available: {itemsAvailable}</p>}
 
       {wallet && <p>Redeemed: {itemsRedeemed}</p>}
 
       {wallet && <p>Remaining: {itemsRemaining}</p>}
 
-      <FccContainer>
-        <FCCText id='FCC'></FCCText>
-        <CarClub></CarClub>
+      <FccContainer id = 'fcc-container'>
+        <Logo id='logo'>
+          <FCCText id='FCC'></FCCText>
+          <CarClub id ='car-club'></CarClub>
+        </Logo>
         <MintContainer>
           {!wallet ? (
             <ConnectButton>Connect Wallet</ConnectButton>
@@ -235,7 +253,7 @@ const Home = (props: HomeProps) => {
           {alertState.message}
         </Alert>
       </Snackbar>
-    </main>
+    </Main>
   );
 };
 

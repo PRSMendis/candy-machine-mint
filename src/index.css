@@ -17,3 +17,11 @@ code {
 #FCC {
   width:250px;
 }
+
+#car-club{
+  width: 200px;
+}
+
+html, body, #app, #app>div {
+  height: 100%
+}
