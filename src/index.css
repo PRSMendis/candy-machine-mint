@@ -20,6 +20,8 @@ code {
 
 #car-club{
   width: 200px;
+  position: relative;
+  bottom: 20px;
 }
 
 html, body, #app, #root, #app>div {
