@@ -19,10 +19,11 @@ h1 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: #d90be4;
 }
 
 .countdown-item {
-    color: #111;
+    color: rgb(255, 255, 255);
     font-size: 40px;
     display: flex;
     align-items: center;
@@ -37,7 +38,7 @@ h1 {
 }
 
 .countdown-item span {
-    color: #333;
+    color: rgb(255, 255, 255);
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
