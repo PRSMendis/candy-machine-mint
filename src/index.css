@@ -25,3 +25,12 @@ code {
 html, body, #app, #root, #app>div {
   height: 100%
 }
+
+.connect-button {
+  background-color: transparent;
+  border: solid;
+  width: 200px;
+  flex-direction: row;
+  justify-content: center;
+
+}
