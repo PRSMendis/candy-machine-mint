@@ -217,7 +217,22 @@ const Home = (props: HomeProps) => {
         <Cdown></Cdown>
         <MintContainer>
           {!wallet ? (
-            <ConnectButton>Connect Wallet</ConnectButton>
+            // <div className='connect-button'><ConnectButton color={'inherit'} id='connect-button'>Connect Wallet</ConnectButton></div>
+            // <ConnectButton color={'inherit'} id='connect-button'>Connect Wallet</ConnectButton>
+            <ConnectButton 
+            id='connect-button'
+            style={{
+              background: 'transparent',
+              borderRadius: 3,
+              border: 'solid',
+              color: 'white',
+              height: 48,
+              width: '200px',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+
+            }} >Connect Wallet</ConnectButton>
           ) : (
             <MintButton
               disabled={isSoldOut || isMinting || !isActive}

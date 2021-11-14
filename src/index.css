@@ -27,7 +27,8 @@ html, body, #app, #root, #app>div {
 }
 
 .connect-button {
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: #303030;
   border: solid;
   width: 200px;
   flex-direction: row;
