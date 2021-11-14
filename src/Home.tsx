@@ -54,7 +54,9 @@ align-items: center;
 const MintContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;`;
+  justify-content: center;
+  padding-top: 20px;
+  `
 
 const MintButton = styled(Button)``; // add your styles here
 

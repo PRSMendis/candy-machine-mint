@@ -20,6 +20,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     background-color: #d90be4;
+    border-radius: 4px;
 }
 
 .countdown-item {
