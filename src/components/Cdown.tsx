@@ -12,7 +12,7 @@ const Cdown = () =>  {
     const [minutes, setMinutes] = useState('');
     const [hours, setHours] = useState('');
     const [days, setDays] = useState('');
-    const timeTillDate = "12 04 2021, 11:00 am"
+    const timeTillDate = "12 04 2021, 11:00 pm"
     const timeFormat = "MM DD YYYY, h:mm a"
 
     useEffect(() => {
