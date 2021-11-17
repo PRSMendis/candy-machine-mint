@@ -21,7 +21,7 @@ code {
 #car-club{
   width: 200px;
   position: relative;
-  bottom: 48px;
+  bottom: 7vh;
 }
 
 html, body, #app, #root, #app>div {
