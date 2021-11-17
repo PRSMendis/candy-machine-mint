@@ -39,8 +39,12 @@ const Logo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 16vh;
+  height: 25vh;
   width: 100%;
+  position: relative;
+  top: 60
+px
+;
 `
 
 const Main = styled.main`
