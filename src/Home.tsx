@@ -231,8 +231,10 @@ const Home = (props: HomeProps) => {
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'center',
-
-            }} >Connect Wallet</ConnectButton>
+              fontWeight: 900,
+              position: 'relative',
+              top: '25px',
+            }} >CONNECT WALLET</ConnectButton>
           ) : (
             <MintButton
               disabled={isSoldOut || isMinting || !isActive}
