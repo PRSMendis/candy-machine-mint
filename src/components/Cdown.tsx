@@ -33,7 +33,7 @@ const Cdown = () =>  {
 
     return (
         <div>
-            <h1>Time Til Mint</h1>
+            <h1>Time Until Mint</h1>
             <div className="countdown-wrapper">
                 <div className="countdown-item">
                     {days}
