@@ -34,6 +34,8 @@ const candyMachineId = new anchor.web3.PublicKey(
   process.env.REACT_APP_CANDY_MACHINE_ID!
 );
 
+const password = 'F0rtunaR0x'
+
 const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
 
 const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
@@ -94,6 +96,7 @@ const App = () => {
                 startDate={startDateSeed}
                 treasury={treasury}
                 txTimeout={txTimeout}
+                password = {password}
               />
             </WalletDialogProvider>
           </WalletProvider>

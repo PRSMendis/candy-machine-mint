@@ -12,7 +12,7 @@ const Cdown = () =>  {
     const [minutes, setMinutes] = useState('');
     const [hours, setHours] = useState('');
     const [days, setDays] = useState('');
-    const timeTillDate = "12 04 2021, 11:00 pm"
+    const timeTillDate = "12 11 2021, 11:00 pm"
     const timeFormat = "MM DD YYYY, h:mm a"
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const Cdown = () =>  {
 
     return (
         <div>
-            <h1>Time Til Mint</h1>
+            <h1>Time Until Mint</h1>
             <div className="countdown-wrapper">
                 <div className="countdown-item">
                     {days}

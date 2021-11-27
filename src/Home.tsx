@@ -1,3 +1,4 @@
+import "./Home.css"
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Countdown from "react-countdown";
@@ -19,8 +20,7 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
-import { ReactComponent as CarClub } from './images/Car Club Text.svg';
-import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
+import { ReactComponent as FCCLogo } from './images/fcc-logos.svg';
 
 import Cdown from "./components/Cdown"
 
@@ -42,9 +42,8 @@ const Logo = styled.div`
   height: 25vh;
   width: 100%;
   position: relative;
-  top: 60
-px
-;
+  top: 60px;
+  margin-bottom: 50px;
 `
 
 const Main = styled.main`
@@ -64,6 +63,19 @@ const MintContainer = styled.div`
 
 const MintButton = styled(Button)``; // add your styles here
 
+const PasswordForm = styled.form``
+
+const PasswordInput = styled.input`
+  background: transparent;
+  border-radius: 4px;
+  border: 2px solid white;
+  caret-color: white;
+  color: #d90ce3;
+  margin-top: 50px;
+  font-size: 2rem;
+;
+`
+
 export interface HomeProps {
   candyMachineId: anchor.web3.PublicKey;
   config: anchor.web3.PublicKey;
@@ -71,6 +83,7 @@ export interface HomeProps {
   startDate: number;
   treasury: anchor.web3.PublicKey;
   txTimeout: number;
+  password: string;
 }
 
 const Home = (props: HomeProps) => {
@@ -82,6 +95,9 @@ const Home = (props: HomeProps) => {
   const [itemsAvailable, setItemsAvailable] = useState(0);
   const [itemsRedeemed, setItemsRedeemed] = useState(0);
   const [itemsRemaining, setItemsRemaining] = useState(0);
+
+  const [formPassword, setFormPassword] = useState('');
+  const [correctPassword, setCorrectPassword] = useState(false)
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -187,6 +203,19 @@ const Home = (props: HomeProps) => {
     }
   };
 
+  // useEffect(()=> {
+  //   var nameInput = document.getElementById('password');
+
+  //   document.querySelector('form.pure-form').addEventListener('submit', function (e) {
+
+  //     //prevent the normal submission of the form
+  //     e.preventDefault();
+  
+  //     console.log(nameInput.value);    
+  // });
+
+  // }, [])
+
   useEffect(() => {
     (async () => {
       if (wallet) {
@@ -202,6 +231,16 @@ const Home = (props: HomeProps) => {
     props.connection,
   ]);
 
+
+  function handleSubmit(e: React.ChangeEvent<any>) {
+    e.preventDefault()
+    console.log('submitted')
+    console.log(formPassword)
+    if (formPassword === props.password) {
+      setCorrectPassword(true);
+      console.log('correct password')
+    } 
+  }
   return (
     <Main>
       {wallet && (
@@ -217,11 +256,16 @@ const Home = (props: HomeProps) => {
 
       <FccContainer id = 'fcc-container'>
         <Logo id='logo'>
-          <FCCText id='FCC'></FCCText>
-          <CarClub id ='car-club'></CarClub>
+          <FCCLogo></FCCLogo>
         </Logo>
         <Cdown></Cdown>
-        <MintContainer>
+        
+        {!correctPassword ? (<PasswordForm className="pure-form" onSubmit={handleSubmit}  >
+          <PasswordInput autoFocus id='password' type="password" value={formPassword} onInput={(e: React.ChangeEvent<HTMLInputElement>)=> {
+            setFormPassword(e.target.value)
+          }}></PasswordInput>
+          {/* <button type="submit"></button> */}
+        </PasswordForm>) : <MintContainer>
           {!wallet ? (
             <ConnectButton 
             id='connect-button'
@@ -263,7 +307,8 @@ const Home = (props: HomeProps) => {
               )}
             </MintButton>
           )}
-        </MintContainer>
+        </MintContainer>}
+        
       </FccContainer>
 
       <Snackbar
