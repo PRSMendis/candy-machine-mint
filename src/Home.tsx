@@ -1,3 +1,4 @@
+import "./Home.css"
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Countdown from "react-countdown";
@@ -65,6 +66,17 @@ const MintContainer = styled.div`
 
 const MintButton = styled(Button)``; // add your styles here
 
+const PasswordForm = styled.form``
+
+const PasswordInput = styled.input`
+  background: transparent;
+  border-radius: 4px;
+  border: 2px solid white;
+  caret-color: white;
+  color: #d90ce3;
+;
+`
+
 export interface HomeProps {
   candyMachineId: anchor.web3.PublicKey;
   config: anchor.web3.PublicKey;
@@ -83,6 +95,9 @@ const Home = (props: HomeProps) => {
   const [itemsAvailable, setItemsAvailable] = useState(0);
   const [itemsRedeemed, setItemsRedeemed] = useState(0);
   const [itemsRemaining, setItemsRemaining] = useState(0);
+
+  const [formPassword, setFormPassword] = useState('');
+  const [correctPassword, setCorrectPassword] = useState(false)
 
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
@@ -220,6 +235,11 @@ const Home = (props: HomeProps) => {
   function handleSubmit(e: React.ChangeEvent<any>) {
     e.preventDefault()
     console.log('submitted')
+    console.log(formPassword)
+    if (formPassword == 'test') {
+      setCorrectPassword(true);
+      console.log('correct password')
+    } 
   }
   return (
     <Main>
@@ -241,10 +261,12 @@ const Home = (props: HomeProps) => {
           <FCCLogo></FCCLogo>
         </Logo>
         <Cdown></Cdown>
-        <form className="pure-form" onSubmit={handleSubmit}  >
-          <input id='password' type="password"></input>
-          <button type="submit"></button>
-        </form>
+        <PasswordForm className="pure-form" onSubmit={handleSubmit}  >
+          <PasswordInput autoFocus id='password' type="password" value={formPassword} onInput={(e: React.ChangeEvent<HTMLInputElement>)=> {
+            setFormPassword(e.target.value)
+          }}></PasswordInput>
+          {/* <button type="submit"></button> */}
+        </PasswordForm>
         <MintContainer>
           {!wallet ? (
             <ConnectButton 
