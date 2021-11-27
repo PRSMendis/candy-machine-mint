@@ -188,6 +188,19 @@ const Home = (props: HomeProps) => {
     }
   };
 
+  // useEffect(()=> {
+  //   var nameInput = document.getElementById('password');
+
+  //   document.querySelector('form.pure-form').addEventListener('submit', function (e) {
+
+  //     //prevent the normal submission of the form
+  //     e.preventDefault();
+  
+  //     console.log(nameInput.value);    
+  // });
+
+  // }, [])
+
   useEffect(() => {
     (async () => {
       if (wallet) {
@@ -203,6 +216,11 @@ const Home = (props: HomeProps) => {
     props.connection,
   ]);
 
+
+  function handleSubmit(e: React.ChangeEvent<any>) {
+    e.preventDefault()
+    console.log('submitted')
+  }
   return (
     <Main>
       {wallet && (
@@ -223,6 +241,10 @@ const Home = (props: HomeProps) => {
           <FCCLogo></FCCLogo>
         </Logo>
         <Cdown></Cdown>
+        <form className="pure-form" onSubmit={handleSubmit}  >
+          <input id='password' type="password"></input>
+          <button type="submit"></button>
+        </form>
         <MintContainer>
           {!wallet ? (
             <ConnectButton 
