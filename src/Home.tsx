@@ -21,6 +21,7 @@ import {
 
 import { ReactComponent as CarClub } from './images/Car Club Text.svg';
 import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
+import { ReactComponent as FCCLogo } from './images/fcc-logos.svg';
 
 import Cdown from "./components/Cdown"
 
@@ -217,8 +218,9 @@ const Home = (props: HomeProps) => {
 
       <FccContainer id = 'fcc-container'>
         <Logo id='logo'>
-          <FCCText id='FCC'></FCCText>
-          <CarClub id ='car-club'></CarClub>
+          {/* <FCCText id='FCC'></FCCText> */}
+          {/* <CarClub id ='car-club'></CarClub> */}
+          <FCCLogo></FCCLogo>
         </Logo>
         <Cdown></Cdown>
         <MintContainer>
