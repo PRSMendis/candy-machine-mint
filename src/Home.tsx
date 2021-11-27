@@ -236,7 +236,7 @@ const Home = (props: HomeProps) => {
     e.preventDefault()
     console.log('submitted')
     console.log(formPassword)
-    if (formPassword == 'test') {
+    if (formPassword === 'test') {
       setCorrectPassword(true);
       console.log('correct password')
     } 
@@ -261,13 +261,13 @@ const Home = (props: HomeProps) => {
           <FCCLogo></FCCLogo>
         </Logo>
         <Cdown></Cdown>
-        <PasswordForm className="pure-form" onSubmit={handleSubmit}  >
+        
+        {!correctPassword ? (<PasswordForm className="pure-form" onSubmit={handleSubmit}  >
           <PasswordInput autoFocus id='password' type="password" value={formPassword} onInput={(e: React.ChangeEvent<HTMLInputElement>)=> {
             setFormPassword(e.target.value)
           }}></PasswordInput>
           {/* <button type="submit"></button> */}
-        </PasswordForm>
-        <MintContainer>
+        </PasswordForm>) : <MintContainer>
           {!wallet ? (
             <ConnectButton 
             id='connect-button'
@@ -309,7 +309,8 @@ const Home = (props: HomeProps) => {
               )}
             </MintButton>
           )}
-        </MintContainer>
+        </MintContainer>}
+        
       </FccContainer>
 
       <Snackbar
