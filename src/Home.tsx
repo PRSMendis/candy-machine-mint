@@ -20,8 +20,6 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
-import { ReactComponent as CarClub } from './images/Car Club Text.svg';
-import { ReactComponent as FCCText } from './images/FCT/Fortuna Text.svg';
 import { ReactComponent as FCCLogo } from './images/fcc-logos.svg';
 
 import Cdown from "./components/Cdown"
@@ -44,9 +42,8 @@ const Logo = styled.div`
   height: 25vh;
   width: 100%;
   position: relative;
-  top: 60
-px
-;
+  top: 60px;
+  margin-bottom: 50px;
 `
 
 const Main = styled.main`
@@ -74,6 +71,8 @@ const PasswordInput = styled.input`
   border: 2px solid white;
   caret-color: white;
   color: #d90ce3;
+  margin-top: 50px;
+  font-size: 2rem;
 ;
 `
 
@@ -84,6 +83,7 @@ export interface HomeProps {
   startDate: number;
   treasury: anchor.web3.PublicKey;
   txTimeout: number;
+  password: string;
 }
 
 const Home = (props: HomeProps) => {
@@ -236,7 +236,7 @@ const Home = (props: HomeProps) => {
     e.preventDefault()
     console.log('submitted')
     console.log(formPassword)
-    if (formPassword === 'test') {
+    if (formPassword === props.password) {
       setCorrectPassword(true);
       console.log('correct password')
     } 
@@ -256,8 +256,6 @@ const Home = (props: HomeProps) => {
 
       <FccContainer id = 'fcc-container'>
         <Logo id='logo'>
-          {/* <FCCText id='FCC'></FCCText> */}
-          {/* <CarClub id ='car-club'></CarClub> */}
           <FCCLogo></FCCLogo>
         </Logo>
         <Cdown></Cdown>
