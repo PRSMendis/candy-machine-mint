@@ -34,7 +34,7 @@ const candyMachineId = new anchor.web3.PublicKey(
   process.env.REACT_APP_CANDY_MACHINE_ID!
 );
 
-const password = 'F0rtunaR0x'
+const password = 'kreelontuskshallfall'
 
 const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
 
